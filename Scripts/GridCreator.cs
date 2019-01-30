@@ -15,11 +15,10 @@ public class GridCreator : MonoBehaviour
     float y;
     float new_oldx;
     float new_oldy;
-    public width;
-    public heigth;
+
     public BuildingMap[] buildings;
     public int[] path;
-    int counter = 0;
+    
     const eps = 0.5;
     public Paths[] pathWay;
     void Start()
@@ -27,36 +26,40 @@ public class GridCreator : MonoBehaviour
         
     }
     struct Paths{
-        public x;
-        public y;
+        public int x;
+        public int y;
     }
     struct BuildingMap{
-        public name;
-        public xAxis;
-        public yAxis;
+        public string name;
+        public int xAxis;
+        public int yAxis;
 
     }
     public void LoadTXT() {
-
-                string[] readedLines = File.ReadAllLines(".txt"); 
-                int lineCounter = -1;
-                string sepLine;
-                GridWidth = readedLines[0].split(" ")[0];
-                GridHeight = readedLines[0].split(" ")[1];
-                int bias = readedLines[0].split(" ")[2]
-                for(int i = 1; i<bias + 1; i++) {
-                    sepLine = readedLines[i];
-                    BuildingMap[i-1].name = sepLine.split(" ")[0];
-                    BuildingMap[i-1].xAxis = sepLine.split(" ")[1];
-                    BuildingMap[i-1].yAxis = sepLine.split(" ")[2];
-                }
-                int cntPair = readedLines[bias+1];
-                int[] mas = readedLines[bias+2].split(" ");
-
-                for (int j = 0; j < cntPair;j= j + 2){
-                    pathWay[j/2].x  = mas[j];
-                    pathWay[j/2].y = mas[j+1];
-                }
+        string sepLine;
+        string[] readedLines = File.ReadAllLines("output.txt"); 
+        GridWidth = Convert.ToInt(readedLines[0].split(" ")[0]);
+        GridHeight = Convert.ToInt(readedLines[0].split(" ")[1]);
+        int bias = Convert.ToInt(readedLines[0].split(" ")[2]);
+        for(int i = 1; i<bias + 1; i++) {
+            sepLine = readedLines[i];
+            buildings[i-1].name = sepLine.split(" ")[0];
+            buildings[i-1].xAxis = Convert.ToInt(sepLine.split(" ")[1]);
+            buildings[i-1].yAxis = Convert.ToInt(sepLine.split(" ")[2]);
+        }
+        int cntPair = readedLines[bias+1];
+        string[] mas = readedLines[bias+2].split(" ");
+        int counter = 0;
+        foreach (string p in mas)
+        {
+            if(counter % 2 == 0){
+               pathWay[counter/2].x  = Convert.ToInt(p);
+            }
+            else {
+               pathWay[counter/2].y = Convert.ToInt(p);
+            }
+            counter++;
+        }
                 //LoadCells(); //Вызов события загрузки блоков
         }
     void Update()
