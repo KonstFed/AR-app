@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{8B066714-0D09-E45D-C6C4-B44732C262D9}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Temp/Compiled-Unlit-Texture.shader">
+    <Files>
+      <File FileName="Temp/Compiled-Unlit-Texture.shader" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
